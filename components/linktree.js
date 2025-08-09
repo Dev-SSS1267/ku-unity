@@ -76,7 +76,7 @@ export default function Home({
                       target="_blank"
                       style={{
                         backgroundColor: link.bgColor || "#2c6bed",
-                        color: link.textColor || "#ffffff",
+                        color: link.textColor || "#ff52a0ff",
                         borderRadius: `${link.borderRadius || "4"}px`,
                       }}
                     >

@@ -3,73 +3,73 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model linkdata {
-  id           Int       @id @default(autoincrement())
-  pagedataid   Int?
-  iconClass    String?   @db.VarChar
-  displayText  String?   @db.VarChar
-  linkUrl      String?   @db.VarChar
-  bgColor      String?   @db.VarChar
-  borderRadius String?   @db.VarChar
-  textColor    String?   @db.VarChar
-  accentColor  String?   @db.VarChar
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  pagedataid   String?   @db.ObjectId
+  iconClass    String?
+  displayText  String?
+  linkUrl      String?
+  bgColor      String?
+  borderRadius String?
+  textColor    String?
+  accentColor  String?
   active       Boolean?  @default(true)
-  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  created_at   DateTime? @default(now())
   pagedata     pagedata? @relation(fields: [pagedataid], references: [id])
-  orderIndex   Int       @default(autoincrement())
+  orderIndex   Int       @default(0)
 }
 
 model socialdata {
-  id           Int       @id @default(autoincrement())
-  pagedataid   Int?
-  iconClass    String?   @db.VarChar
-  linkUrl      String?   @db.VarChar
-  bgColor      String?   @db.VarChar
-  borderRadius String?   @db.VarChar
-  accentColor  String?   @db.VarChar
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  pagedataid   String?   @db.ObjectId
+  iconClass    String?
+  linkUrl      String?
+  bgColor      String?
+  borderRadius String?
+  accentColor  String?
   active       Boolean?  @default(true)
-  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  created_at   DateTime? @default(now())
   pagedata     pagedata? @relation(fields: [pagedataid], references: [id])
-  orderIndex   Int       @default(autoincrement())
+  orderIndex   Int       @default(0)
 }
 
 model pagedata {
-  id                          Int          @id
-  avatarUrl                   String?      @db.VarChar
-  avatarheight                String?      @db.VarChar
-  avatarwidth                 String?      @db.VarChar
-  avatarBorderColor           String?      @db.VarChar
-  bgColor                     String?      @db.VarChar
-  accentColor                 String?      @db.VarChar
-  handlerText                 String?      @db.VarChar
-  handlerLink                 String?      @db.VarChar
-  footerText                  String?      @db.VarChar
-  footerTextColor             String?      @db.VarChar
-  footerBgColor               String?      @db.VarChar
-  footerTextSize              String?      @db.VarChar
-  bgImgUrl                    String?      @db.VarChar
-  handlerFontSize             String?      @db.VarChar
-  handlerFontColor            String?      @db.VarChar
+  id                          String       @id @default(auto()) @map("_id") @db.ObjectId
+  avatarUrl                   String?
+  avatarheight                String?
+  avatarwidth                 String?
+  avatarBorderColor           String?
+  bgColor                     String?
+  accentColor                 String?
+  handlerText                 String?
+  handlerLink                 String?
+  footerText                  String?
+  footerTextColor             String?
+  footerBgColor               String?
+  footerTextSize              String?
+  bgImgUrl                    String?
+  handlerFontSize             String?
+  handlerFontColor            String?
   active                      Boolean?     @default(true)
-  fontFamily                  String?      @db.VarChar
-  fontUrl                     String?      @db.VarChar
-  created_at                  DateTime?    @default(now()) @db.Timestamptz(6)
+  fontFamily                  String?
+  fontUrl                     String?
+  created_at                  DateTime?    @default(now())
   linkdata                    linkdata[]
   socialdata                  socialdata[]
-  handlerDescription          String?      @db.VarChar
-  handlerDescriptionFontColor String?      @db.VarChar
+  handlerDescription          String?
+  handlerDescriptionFontColor String?
   footerEnabled               Boolean?     @default(true)
-  linkPadding                 String?      @db.VarChar
-  linktreeWidth               String?      @db.VarChar
+  linkPadding                 String?
+  linktreeWidth               String?
 }
 
 model users {
-  id         Int       @id @default(autoincrement())
-  username   String    @unique @db.VarChar(255)
-  password   String    @db.VarChar(60)
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  username   String    @unique
+  password   String
+  created_at DateTime? @default(now())
 }

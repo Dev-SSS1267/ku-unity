@@ -15,7 +15,7 @@ async function seed() {
     console.log("seeding initialized");
 
     let existingUser = await Prisma.users.findMany({
-      where: { username: "admin" },
+      where: { username: "kuunity2025" },
       select: { username: true },
     });
     console.log(existingUser);
@@ -28,15 +28,14 @@ async function seed() {
 
     await Prisma.users.create({
       data: {
-        username: "admin",
+        username: "kuunity2025",
         password:
-          "$2b$10$gKoU.xdV9vrGY2wEW0KAnuBmQeYxOUgXRHS9f8Sgx40m7kxpejddG",
+          "$2b$10$3PcoIpB/W6DhecVZSAK87.lQB3yPmu6OQwVbEIm51cGSr80a5vUKi",
       },
     });
 
     await Prisma.pagedata.create({
       data: {
-        id: 1,
         handlerText: "LinkIn",
         avatarUrl:
           "https://res.cloudinary.com/dijjqfsto/image/upload/v1621666671/linkin_logo_1_jcuvr3.png",

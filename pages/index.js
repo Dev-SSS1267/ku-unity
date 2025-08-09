@@ -10,6 +10,26 @@ export async function getServerSideProps() {
     // console.log(data);
   } catch (error) {
     console.log(error.message);
+    // 데이터베이스 연결 오류시 기본 데이터 제공
+    data = {
+      pageData: {
+        id: 1,
+        handlerText: "Demo User",
+        handlerDescription: "Welcome to my link tree",
+        avatarUrl: "/images/avatar.jpg",
+        bgColor: "#ffffff",
+        accentColor: "#000000",
+        handlerFontColor: "#000000",
+        handlerDescriptionFontColor: "#666666",
+        fontFamily: "Arial",
+        footerEnabled: true,
+        footerText: "Powered by Linkin",
+        footerTextColor: "#999999",
+        active: true
+      },
+      linkData: [],
+      socialData: []
+    };
   }
 
   return {
