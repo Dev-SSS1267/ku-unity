@@ -2,7 +2,7 @@ import Head from "next/head";
 import LinkinTheBioPage from "../components/linktree";
 import { getPageDatawLinkAndSocialData } from "../lib/dbfuncprisma";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let data;
   // console.log(process.env.NODE_ENV);
   try {
@@ -38,6 +38,8 @@ export async function getServerSideProps() {
       linkData: data.linkData,
       socialData: data.socialData,
     },
+    // ISR: 60초마다 재생성
+    revalidate: 60,
   };
 }
 

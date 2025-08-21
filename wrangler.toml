@@ -1,0 +1,16 @@
+name = "ku-unity"
+compatibility_date = "2025-08-09"
+
+# Cloudflare Pages 설정
+[build]
+command = "npm run build"
+cwd = "."
+
+[env.production]
+vars = { NODE_ENV = "production" }
+
+# 환경 변수는 Cloudflare Pages 대시보드에서 설정
+# DATABASE_URL, JWT_SECRET, HASHSALT
+
+[routes]
+pattern = "*"

@@ -4,47 +4,34 @@
   "private": true,
   "license": "MIT",
   "description": "Linkin is a customizable self hosted link tree application",
-  "logo": "https://res.cloudinary.com/dijjqfsto/image/upload/v1621666671/linkin_logo_1_jcuvr3.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RizkyRajitha/linkin.git"
-  },
   "scripts": {
     "dev": "next dev",
     "start": "next start",
+    "build": "next build",
     "seed": "node scripts/seed.js",
-    "build": "npm-run-all prismamigrateprod prismagenerate seed build-next",
     "prismagenerate": "prisma generate",
-    "prismamigrateprod": "prisma migrate deploy",
-    "herokustart": "next start -p $PORT",
-    "build-next": "next build",
-    "test": "jest --coverage -i ./__tests__/"
+    "pages:build": "npm run build",
+    "pages:dev": "npm run dev",
+    "deploy": "wrangler pages deploy out"
   },
   "dependencies": {
     "@prisma/client": "^4.16.2",
-    "bcrypt": "^5.0.0",
-    "cookie": "^0.4.1",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "jose": "^1.28.0",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^5.0.2",
+    "cookie": "^1.0.2",
+    "jose": "^6.0.12",
+    "jsonwebtoken": "^8.5.1",
     "lodash.debounce": "^4.0.8",
-    "next": "^12.0.4",
-    "npm-run-all": "^4.1.5",
-    "pg": "^8.6.0",
-    "react": "^17.0.2",
-    "react-beautiful-dnd": "^13.1.0",
-    "react-dom": "^17.0.2",
-    "react-hook-form": "^7.4.2",
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.62.0",
     "react-toastify": "^7.0.4",
-    "sweetalert2": "^11.0.16"
+    "sweetalert2": "^11.22.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@testing-library/dom": "^7.31.0",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "babel-jest": "^27.0.1",
-    "cloudinary": "^1.27.1",
-    "jest": "^27.0.1",
     "prisma": "^4.16.2"
   }
 }
