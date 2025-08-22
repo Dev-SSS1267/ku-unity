@@ -6,5 +6,11 @@ compatibility_flags = ["nodejs_compat"]
 [vars]
 NODE_ENV = "production"
 
+# D1 데이터베이스 설정
+[[d1_databases]]
+binding = "DB"
+database_name = "ku-unity-db"
+database_id = "0c404ea2-9a34-4d57-b645-dcf7d04c839d"
+
 # 환경 변수는 wrangler secret put 명령어로 설정
 # DATABASE_URL, JWT_SECRET, HASHSALT
