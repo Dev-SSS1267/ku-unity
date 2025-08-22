@@ -8,11 +8,14 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
+    "build:worker": "npm run build",
     "seed": "node scripts/seed.js",
     "prismagenerate": "prisma generate",
     "pages:build": "npm run build",
     "pages:dev": "npm run dev",
-    "deploy": "wrangler pages deploy out"
+    "deploy": "wrangler deploy",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy"
   },
   "dependencies": {
     "@prisma/client": "^4.16.2",
@@ -32,6 +35,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "prisma": "^4.16.2"
+    "prisma": "^4.16.2",
+    "wrangler": "^4.31.0"
   }
 }
